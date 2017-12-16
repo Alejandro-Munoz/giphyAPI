@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Giphy API</title>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <style rel>
+    img#item{
+     margin:15px;
+    }
+
+    .jumbotron{
+      text-align:center;
+      background: DarkMagenta;
+      color:white;
+      padding: 5px;
+    }
+    .button{
+      margin:5px;
+    }
+
+    .grid-item {
+      float: left;
+      /*width: 200px;*/
+      height: 200px;
+      border: 2px solid hsla(0, 0%, 0%, 0.5);
+    }
+  </style>
+</head>
+<body>
+ <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron">
+          <h1>Animal's Gifs</h1>
+        </div>
+      </div>
+    </div>
+    <!-- buttons container -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h2>List of Animals</h2>
+            </div>
+          </div>
+          <div id="buttons" class="panel-body">
+            <div id="topicsDiv"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h2>Results</h2>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div id="images" class="grid"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h2>Add an animal</h2>
+            </div>
+          </div>
+          <div class="panel-body">
+            <form id="images-form">
+              <input type="text" id="animal-input"><br>
+              <br>
+              <button id="add-animal" class="btn btn-default" >Add an Animal</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">
+    
+  $(document).ready(function(){
+    // Array of topics
+    var topics = ["dogs","cats","birds"];
+    var topicsDiv = $("#topicsDiv");
+
+    function loadButtons(){
+
+      topicsDiv.empty();
+      for(var i = 0; i < topics.length; i++){
+        var button = $("<button class='button btn btn-default ' />").text(topics[i]);
+        topicsDiv.append(button);
+      }    
+    }
+
+    $(document).on("click", "#add-animal", function(e){
+      e.preventDefault();
+      console.log("entraaddanimal");
+      var newAnimal = $("#animal-input").val();
+      topics.push(newAnimal);
+      console.log(topics);
+      loadButtons();
+      $("#animal-input").val("");
+    });
+
+    $(document).on("click","#item", function(){
+      var state = $(this).attr("data-state");
+      // console.log(state);
+      if(state === "still"){
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state","animate");
+
+      }
+      else if(state === "animate"){
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state","still");
+      }
+    });
+
+    $(document).on("click", ".button", function(e) {
+        e.preventDefault();
+
+        var imagesDiv = $("#images");
+        imagesDiv.empty();
+
+        var strSearch = $(e.target).text();
+        // console.log(strSearch);
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        strSearch + "&api_key=dc6zaTOxFJmzC&limit=10";
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).done(function(response) {
+        // console.log(response);
+        for (var numImages = 0; numImages < response.data.length; numImages++){
+          var img = $("<img id='item' class='grid-item' style='width:200px; height=200px' src='" + response.data[numImages].images.fixed_height_still.url + "' />");
+          
+          img.attr("data-still",response.data[numImages].images.fixed_height_still.url)
+          img.attr("data-animate",response.data[numImages].images.fixed_height.url)
+          img.attr("data-state","still");
+          imagesDiv.append(img);
+        }
+      });
+    });
+    
+    loadButtons();
+  })  
+  
+</script>
+</body>
+
+</html>
