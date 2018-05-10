@@ -3,10 +3,11 @@
 ## What is it?
 A fun app that allow to request and show funny gifs, build with Bootstrap, jQuery and Ajax.
 
-The application allows you to:
+The application provides 3 main sections:
 
-	* Click a desire gif button
-	* Create new button with new themes
+	* List of Animals
+	* Add Animal
+	* Results
 
 Refer to the [**Show Me**](#show-me) section below for examples on how to use each of the views.
 
@@ -24,11 +25,11 @@ After opening `index.html` in browser, you will be presented with the app home p
 
 ![giphy_index](images/for_readme/giphy_index.png)
 
-## Customer View
+## List of Animals
 
-When the Customer view is selected, you will be presented with a table of all the items currently for sale.
+In this section you will find a list of buttons which you can click and the app will make an api request to retrieve gifs relative to button text animal.
 
-![customer enter id](images/for_readme/customer_enterID.png)
+![list_of_animals](images/for_readme/list_of_animals.png)
 
 After entering a valid item ID, you will be asked to provide the amount to purchase.
 
