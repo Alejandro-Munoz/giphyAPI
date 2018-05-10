@@ -12,19 +12,17 @@ Refer to the [**Show Me**](#show-me) section below for examples on how to use ea
 
 ## How do I use it?
 
-Clone this repository and then run:
+Clone this repository.
 
-`npm install`
+Then, open in browser:
 
-Then, to run the applicaton run:
-
-`node index`
+`index.html`
 
 ## Show Me
 
-After execuring `node index`, you will be presented with a list of view options to choose from.
+After opening `index.html` in browser, you will be presented with the app home page.
 
-![index image](images/for_readme/node_index.png)
+![giphy_index](images/for_readme/giphy_index.png)
 
 ## Customer View
 
