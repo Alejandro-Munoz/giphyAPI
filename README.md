@@ -31,13 +31,11 @@ In this section you will find a list of buttons which you can click and the app 
 
 ![list_of_animals](images/for_readme/list_of_animals.png)
 
-After entering a valid item ID, you will be asked to provide the amount to purchase.
+After clicking in an animal button the app will present you a list of static gifs in the Results section.
 
-![customer_enter_qty](images/for_readme/customer_validID.png)
+![giphy_results](images/for_readme/giphy_results.png)
 
-If the store has enough inventory on hand to complete your order, you will be presented with an order summary.
-
-![customer order summary](images/for_readme/customer_successfulOrder.png)
+You can also click on each animal gif to make them MOVE!!!.
 
 ### Invalid Input Handling
 
