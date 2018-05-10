@@ -31,76 +31,18 @@ In this section you will find a list of buttons which you can click and the app 
 
 ![list_of_animals](images/for_readme/list_of_animals.png)
 
+## Results
+
 After clicking in an animal button the app will present you a list of static gifs in the Results section.
 
 ![giphy_results](images/for_readme/giphy_results.png)
 
 You can also click on each animal gif to make them MOVE!!!.
 
-### Invalid Input Handling
+## Add Animal
 
-During order processing, if an invalid item ID/quantity value is provided, you will not be allowed to proceed until a valid item ID/quantity is entered.
+Want more? You can add more animals by providing and animal name in the input box and click on "Add an Animal" button in Add Animal section.
 
-![invalid item id](images/for_readme/customer_invalidID.png)
+![add_animal](images/for_readme/add_animal.png)
 
-![invalid quantity](images/for_readme/customer_invalidInventoryAmount.png)
 
-If the store does not have enough quanity on hand, the order will not be processed.
-
-![not enough quantity](images/for_readme/customer_notEnoughInventory.png)
-
-## Manager View
-
-The Manager View provides you with the following choices.
-
-![manager choices](images/for_readme/manager_choices.png)
-
-### View Products for Sale
-
-Provides you with a table of the current items for sale in the store.
-
-![manager products for sale](images/for_readme/manager_viewProducts.png)
-
-### View Low Inventory
-
-Provides you with a table of the current items in the store with a quanity less than 5.
-
-![manager low inventory](images/for_readme/manager_lowInventory.png)
-
-### Add to Inventory
-
-Provides you with the ability to add inventory to a currently existing item ID.
-
-![manager add to inventory](images/for_readme/manager_addToInventoryItemId.png)
-
-You will then be prompted to add the amount of inventory to add.
-
-![manager add to inventory](images/for_readme/manager_addToInventory.png)
-
-In the manager view, you will also be able to add a new products to the store.
-
-![manager add product](images/for_readme/manager_addNewProduct.png)
-
-### Invalid Input Handling
-
-In the ** Add to Inventory ** view, if an attempt is made to update an item ID which does not exists, you will be presented with an error.
-
-![add to inventory invalid id](images/for_readme/manager_addToInventoryError.png)
-
-## Supervisor View
-
-The Supervisor view allows you the following options.
-
-![supervisor choices](images/for_readme/supervisor_choices.png)
-
-### View Product Sales by Department
-
-Provides you with a table of the total sales by available departments.
-
-![supervisor total sales](images/for_readme/supervisor_viewProductSales.png)
-
-### Create Department
-
-Allows you to create a new department.
-
-![supervisor create dept](images/for_readme/supervisor_createDepartment.png)
